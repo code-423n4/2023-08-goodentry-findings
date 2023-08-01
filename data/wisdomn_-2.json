@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "Function executoptions is vulnerable to reentrancy attack.",
+  "issueId": 2,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/2"
+}
