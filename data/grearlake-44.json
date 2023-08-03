@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "Lack of checking low-level call in swap functions can lead to user loss receive eth in some cases",
+  "issueId": 44,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/44"
+}
