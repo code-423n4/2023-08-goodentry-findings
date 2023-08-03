@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "Function claimRewards  is vulnerable to Access Control Attack. ",
+  "issueId": 50,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/50"
+}
