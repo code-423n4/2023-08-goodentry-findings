@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "dacian",
+  "risk": "2",
+  "title": "OptionsPositionManager swaps with deadline: block.timestamp offer no protection",
+  "issueId": 28,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/28"
+}
