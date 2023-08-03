@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "dacian",
+  "risk": "2",
+  "title": "Attacker can extract value from protocol during extreme price crash as LPOracle.getAnswer() & OracleConvert.getAnswer() don't check price > minAnswer",
+  "issueId": 27,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/27"
+}
