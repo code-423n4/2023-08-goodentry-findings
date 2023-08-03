@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "3docSec",
+  "risk": "2",
+  "title": "RangeManager can push users below the lending protocol soft liquidation threshold",
+  "issueId": 62,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/62"
+}
