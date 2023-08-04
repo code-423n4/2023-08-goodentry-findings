@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Krace",
+  "risk": "3",
+  "title": "V3Proxy::swapTokensForExactETH does not return the remaining tokens to the user, which may result in user token loss",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/77"
+}
