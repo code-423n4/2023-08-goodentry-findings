@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "ElCid",
+  "risk": "2",
+  "title": "``transfer()`` should not be used to send ETH.",
+  "issueId": 79,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/79"
+}
