@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "3docSec",
+  "risk": "2",
+  "title": "Slippage check in TokenisableRange.claimFee() can temporarily lock funds in the contract",
+  "issueId": 87,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/87"
+}
