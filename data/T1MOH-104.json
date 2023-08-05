@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "T1MOH",
+  "risk": "2",
+  "title": "`V3Proxy.swapTokensForExactETH()` executes swaps with maximum allowed slippage",
+  "issueId": 104,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/104"
+}
