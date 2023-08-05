@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "0x70C9",
+  "risk": "2",
+  "title": "Hardcoded value in health factor check can leave the user in soft liquidation territory",
+  "issueId": 102,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/102"
+}
