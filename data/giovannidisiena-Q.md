@@ -1,0 +1,2 @@
+## [L-01] Unused `to` parameter in `V3Proxy` swap functions
+The swap functions in `V3Proxy` take an `address to` parameter intended to allow the caller to specify the swap destination; however, this parameter is never used. Instead, tokens are sent to the `msg.sender` which means that whilst the funds do not reach their intended destination, they are not lost (unless called by another contract which does not expect to receive funds and thus does not forward them on to the user).
