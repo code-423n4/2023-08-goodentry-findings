@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Team_FliBit",
+  "risk": "3",
+  "title": "High - ticks[] in GeVault.sol not ordered in ascending price order",
+  "issueId": 180,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/180"
+}
