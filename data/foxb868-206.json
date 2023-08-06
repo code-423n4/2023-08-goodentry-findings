@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "The current implementation checks the order of tokens but lacks a check to ensure that `token0` and `token1` are not the same.",
+  "issueId": 206,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/206"
+}
