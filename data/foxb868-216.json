@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": " The fact that there is no check in the `depositAndStash` function ensures that the `amount0` and `amount1` values are safe to use during the deposit operation. If these values are too large or invalid, they may cause an underflow or other unintended behavior during the deposit.",
+  "issueId": 216,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/216"
+}
