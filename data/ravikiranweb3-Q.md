@@ -22,3 +22,4 @@
 ```
 
 3) RangeManager contract is using older complier and also has floating pragma.
+
