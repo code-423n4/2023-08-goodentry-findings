@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Oxsadeeq",
+  "risk": "2",
+  "title": "TokenisableRange contract would always revert when minting a liquidity position",
+  "issueId": 234,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/234"
+}
