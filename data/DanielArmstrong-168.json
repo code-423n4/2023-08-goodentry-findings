@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "DanielArmstrong",
+  "risk": "3",
+  "title": "Users don't receive token change when use V3Proxy.swapTokensForExactETH() method.",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/168"
+}
