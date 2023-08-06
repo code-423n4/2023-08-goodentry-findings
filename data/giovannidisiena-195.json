@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "giovannidisiena",
+  "risk": "3",
+  "title": "Potentially incorrect implementation of Beacon Proxy in `RangeManager::generateRange`",
+  "issueId": 195,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/195"
+}
