@@ -23,3 +23,5 @@
 
 3) RangeManager contract is using older complier and also has floating pragma.
 
+4) V2Proxy::swapExactTokensForTokens() has to parameter, but never used in the function.
+   The same issue lies with other swap functions where to was not used.
