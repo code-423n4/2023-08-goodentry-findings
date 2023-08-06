@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "0xSmartContract",
+  "risk": "2",
+  "title": "Re-entrancy guard is missing in many functions in `OptionsPositionManager.sol` contract",
+  "issueId": 230,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/230"
+}
