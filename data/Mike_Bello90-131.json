@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Mike_Bello90",
+  "risk": "2",
+  "title": "Vulnerability: Sending Block.timestamp as a Deadline to Uniswap can affect user swap and funds / Contract: OptionsPositionManager / Function: swapExactTokensForTokens - swapTokensForExactTokens",
+  "issueId": 131,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/131"
+}
