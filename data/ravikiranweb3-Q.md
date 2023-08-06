@@ -20,3 +20,5 @@
       // deposit remaining tokens
       LP.deposit( asset, amt, user, 0 );
 ```
+
+3) RangeManager contract is using older complier and also has floating pragma.
