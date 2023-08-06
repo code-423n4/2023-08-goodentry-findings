@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "If the `checkNewRange` function fails to detect overlapping ranges, it may allow users to add ranges that could conflict with existing ones.",
+  "issueId": 213,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/213"
+}
