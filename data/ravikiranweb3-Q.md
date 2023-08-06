@@ -25,3 +25,5 @@
 
 4) V2Proxy::swapExactTokensForTokens() has to parameter, but never used in the function.
    The same issue lies with other swap functions where to was not used.
+
+5) FixedOracle contract is using floating pragma and different version of compiler.
