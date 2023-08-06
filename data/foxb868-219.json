@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Potential Unintended Token Transfer in withdraw function.",
+  "issueId": 219,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/219"
+}
