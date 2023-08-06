@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Team_FliBit",
+  "risk": "3",
+  "title": "Lack of validation between Tokenised Ranges and GeVault Uniswap Pool",
+  "issueId": 187,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/187"
+}
