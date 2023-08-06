@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Bughunter101",
+  "risk": "2",
+  "title": "When call the `ROEROUTER.pools(poolId)`, protocol does not check if the pool is `isDeprecated`",
+  "issueId": 147,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/147"
+}
