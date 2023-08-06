@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "0xDING99YA",
+  "risk": "2",
+  "title": "Docs specify the protocol profit cut in swap fee is 20% and can be configured on governance, which is different from the actual code",
+  "issueId": 177,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/177"
+}
