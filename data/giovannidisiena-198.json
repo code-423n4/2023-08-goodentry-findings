@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "giovannidisiena",
+  "risk": "3",
+  "title": "Protocol is susceptible to denial-of-service attacks due to overflows when calling `SafeERC20::safeIncreaseAllowance`",
+  "issueId": 198,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/198"
+}
