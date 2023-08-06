@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "If the division operation encounters a zero value as the denominator, it will throw an exception and terminate the contract execution.",
+  "issueId": 220,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/220"
+}
