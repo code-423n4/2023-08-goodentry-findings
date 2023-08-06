@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "TheVanquiser",
+  "risk": "3",
+  "title": "OptionsPositionManager.sol: lack of access control ``executeOperation``(missing ``initiator`` check), attacker can drain user's funds",
+  "issueId": 138,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/138"
+}
