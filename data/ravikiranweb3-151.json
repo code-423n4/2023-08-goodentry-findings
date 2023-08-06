@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "ravikiranweb3",
+  "risk": "2",
+  "title": "executeLiquidation assumes that assets and amounts  are always passed correctly - lacks validations",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/151"
+}
