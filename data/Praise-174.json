@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Praise",
+  "risk": "2",
+  "title": "Conflicting checks in GeVault.withdraw() makes it impossible to redeem all liquidity ",
+  "issueId": 174,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/174"
+}
