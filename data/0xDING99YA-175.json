@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "0xDING99YA",
+  "risk": "2",
+  "title": "Using block.timestamp as deadline can result in the late execution of the transaction and potential loss of funds for user",
+  "issueId": 175,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/175"
+}
