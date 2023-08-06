@@ -73,7 +73,7 @@ The EVM works with 32 byte words. Variables less than 32 bytes can be declared n
 
 https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L48-L54
 
-``baseFeeX4`` is not exceed ``1e4`` this because ``newBaseFeeX4 < 1e4`` check
+``baseFeeX4`` value is not exceed ``1e4`` because ``require(newBaseFeeX4 < 1e4, "GEV: Invalid Base Fee");``  this check
 
 ```diff
 FILE: Breadcrumbs2023-08-goodentry/contracts/GeVault.sol
@@ -90,21 +90,47 @@ FILE: Breadcrumbs2023-08-goodentry/contracts/GeVault.sol
 
 ```
 
-Functions guaranteed to revert when called by normal users can be marked payable
+### ``lowerTick,upperTick,feeTier,liquidity`` can be packed together : Saves ``2000 GAS, 1 SLOT``
 
-If a function modifier such as onlyOwner is used, the function will revert if a normal user tries to pay the function. Marking the function as payable will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided. The extra opcodes avoided are CALLVALUE(2),DUP1(3),ISZERO(3),PUSH2(3),JUMPI(10),PUSH1(3),DUP1(3),REVERT(0),JUMPDEST(1),POP(2), which costs an average of about 21 gas per call to the function, in addition to the extra deployment cost
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/TokenisableRange.sol#L52
 
-Multiple accesses of a mapping/array should use a local variable cache
+```diff
+FILE: Breadcrumbs2023-08-goodentry/contracts/TokenisableRange.sol
 
-The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping’s value in a local storage or calldata variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key’s keccak256 hash (Gkeccak256 - 30 gas) and that calculation’s associated stack operations. Caching an array’s struct avoids recalculating the array offsets into memory/calldata
+  int24 public lowerTick;
+  int24 public upperTick;
+  uint24 public feeTier;
++  uint128 public liquidity;
+  
+  uint256 public tokenId;
+  uint256 public fee0;
+  uint256 public fee1;
+  
+  struct ASSET {
+    ERC20 token;
+    uint8 decimals;
+  }
+  
+  ASSET public TOKEN0;
+  ASSET public TOKEN1;
+  IAaveOracle public ORACLE;
+  
+  string _name;
+  string _symbol;
+  
+  enum ProxyState { INIT_PROXY, INIT_LP, READY }
+  ProxyState public status;
+  address private creator;
+  
+-  uint128 public liquidity;
+  // @notice deprecated, keep to avoid beacon storage slot overwriting errors
+  address public TREASURY_DEPRECATED = 0x22Cc3f665ba4C898226353B672c5123c58751692;
+  uint public treasuryFee_deprecated = 20;
 
-Condition checks should be top of the function. The cheep condition checks first then expensive checks 
+```
+##
 
-don't emit state variable
-
-combine both events together 
-
-Using bools for storage incurs overhead
+## [G-3] Using bools for storage incurs overhead
 
 ```
     // Booleans are more expensive than uint256 or any type that takes up a full
@@ -114,5 +140,213 @@ Using bools for storage incurs overhead
     // pointer aliasing, and it cannot be disabled.
 ```
 
-Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas) for the extra SLOAD, and to avoid Gsset (20000 gas) when changing from false to true, after having been true in the past
+Use uint256(1) and uint256(2) for true/false to avoid a Gwarmaccess (100 gas) for the extra SLOAD, and to avoid Gsset (20000 gas) when changing from false to true, after having been true in the past.
+
+```solidity
+FILE: Breadcrumbs2023-08-goodentry/contracts/GeVault.sol
+
+50: bool public isEnabled = true;
+
+64: bool public baseTokenIsToken0;
+
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L50
+
+```solidity
+FILE: 2023-08-goodentry/contracts/helper/V3Proxy.sol
+
+65: bool acceptPayable;
+
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/helper/V3Proxy.sol#L65
+
+
+##
+
+## [G-4] Functions guaranteed to revert when called by normal users can be marked payable
+
+If a function modifier such as onlyOwner is used, the function will revert if a normal user tries to pay the function. Marking the function as payable will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided. The extra opcodes avoided are CALLVALUE(2),DUP1(3),ISZERO(3),PUSH2(3),JUMPI(10),PUSH1(3),DUP1(3),REVERT(0),JUMPDEST(1),POP(2), which costs an average of about 21 gas per call to the function, in addition to the extra deployment cost
+
+```solidity
+101:   function setEnabled(bool _isEnabled) public onlyOwner  
+
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/GeVault.sol#L101-L101
+
+```solidity
+108:   function setTreasury(address newTreasury) public onlyOwner  
+```
+
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/GeVault.sol#L108-L108
+
+```solidity
+116:   function pushTick(address tr) public onlyOwner  
+
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/GeVault.sol#L116-L116
+
+```solidity
+137:   function shiftTick(address tr) public onlyOwner  
+
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/GeVault.sol#L137-L137
+
+```solidity
+167:   function modifyTick(address tr, uint index) public onlyOwner  
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/GeVault.sol#L167-L167
+
+```solidity
+183:   function setBaseFee(uint newBaseFeeX4) public onlyOwner  
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/GeVault.sol#L183-L183
+
+
+```solidity
+191:   function setTvlCap(uint newTvlCap) public onlyOwner  
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/GeVault.sol#L191-L191
+
+```solidity
+94:     function emergencyWithdraw(ERC20 token) onlyOwner external  
+
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/helper/V3Proxy.sol#L94-L94
+
+
+```solidity
+75:   function generateRange(uint128 startX10, uint128 endX10, string memory startName, string memory endName, address beacon) external onlyOwner  
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/RangeManager.sol#L75-L75
+
+```solidity
+95:   function initRange(address tr, uint amount0, uint amount1) external onlyOwner 
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/RangeManager.sol#L95-L95
+
+```solidity
+48:   function deprecatePool(uint poolId) public onlyOwner 
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/RoeRouter.sol#L48-L48
+
+```solidity
+
+59:   function addPool(
+60:     address lendingPoolAddressProvider, 
+61:     address token0, 
+62:     address token1, 
+63:     address ammRouter
+64:   ) 
+65:     public onlyOwner 
+66:     returns (uint poolId)
+67:   
+```
+
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/RoeRouter.sol#L65-L65
+
+```solidity
+24:     function setHardcodedPrice(int256 _hardcodedPrice) external onlyOwner 
+
+```
+
+https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/helper/FixedOracle.sol#L24-L24
+
+##
+
+## [G-5] Multiple accesses of a mapping/array should use a local variable cache
+
+The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping’s value in a local storage or calldata variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key’s keccak256 hash (Gkeccak256 - 30 gas) and that calculation’s associated stack operations. Caching an array’s struct avoids recalculating the array offsets into memory/calldata
+
+### ``ticks[ticks.length-1]``, ``ticks[0]`` should be cached with stack variable : Saves ``200 GAS, 2 SLOD``
+
+```diff
+FILE: Breadcrumbs2023-08-goodentry/contracts/GeVault.sol
+
+122: else {
+123:      // Check that tick is properly ordered
++   TokenisableRange ticks_ = ticks[ticks.length-1];
+124:      if (baseTokenIsToken0) 
+- 125:        require( t.lowerTick() > ticks[ticks.length-1].upperTick(), "GEV: Push Tick Overlap");
++ 125:        require( t.lowerTick() > ticks_.upperTick(), "GEV: Push Tick Overlap");
+126:      else 
+- 127:        require( t.upperTick() < ticks[ticks.length-1].lowerTick(), "GEV: Push Tick Overlap");
++ 127:        require( t.upperTick() < ticks_ .lowerTick(), "GEV: Push Tick Overlap");
+128:      
+129:      ticks.push(TokenisableRange(tr));
+
+
+145: else {
+146:      // Check that tick is properly ordered
++   TokenisableRange ticks_ = ticks[0];
+147:      if (!baseTokenIsToken0) 
+- 148:        require( t.lowerTick() > ticks[0].upperTick(), "GEV: Shift Tick Overlap");
++ 148:        require( t.lowerTick() > ticks_.upperTick(), "GEV: Shift Tick Overlap");
+149:      else 
+- 150:        require( t.upperTick() < ticks[0].lowerTick(), "GEV: Shift Tick Overlap");
++ 150:        require( t.upperTick() < ticks_.lowerTick(), "GEV: Shift Tick Overlap");
+
+```
+
+###  ``tokenisedTicker[step]``,``tokenisedRanges[ tokenisedRanges.length - 1 ]``,``tokenisedTicker[step]`` should be cached  : Saves  ``900 GAS``, ``9 SLOD``
+
+
+```diff
+FILE: Breadcrumbs2023-08-goodentry/contracts/RangeManager.sol
+
++   TokenisableRange tokenisedRanges_ = tokenisedRanges[ tokenisedRanges.length - 1 ] ; 
+- 85:   tokenisedRanges[ tokenisedRanges.length - 1 ].initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, false);
++ 85:   tokenisedRanges_.initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, false);
+- 86:    tokenisedTicker[ tokenisedTicker.length - 1 ].initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, true); 
++ 86:    tokenisedRanges_.initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, true); 
+87:    emit AddRange(startX10, endX10, tokenisedRanges.length - 1);
+
+
+
++   TokenisableRange  step_ = tokenisedRanges[step] ; 
+- 111: trAmt = ERC20(LENDING_POOL.getReserveData(address(tokenisedRanges[step])).aTokenAddress).balanceOf(msg.sender);  
++ 111: trAmt = ERC20(LENDING_POOL.getReserveData(address(step_)).aTokenAddress).balanceOf(msg.sender);  
+112:    if (trAmt > 0) {       
+113:        LENDING_POOL.PMTransfer(
+- 114:          LENDING_POOL.getReserveData(address(tokenisedRanges[step])).aTokenAddress,
++ 114:          LENDING_POOL.getReserveData(address(step_)).aTokenAddress,  
+115:          msg.sender, 
+116:          trAmt
+117:        );
+- 118:        trAmt = LENDING_POOL.withdraw(address(tokenisedRanges[step]), type(uint256).max, address(this));
++ 118:        trAmt = LENDING_POOL.withdraw(address(step_), type(uint256).max, address(this));
+- 119:        tokenisedRanges[step].withdraw(trAmt, 0, 0);
++ 119:        step_.withdraw(trAmt, 0, 0);
+- 120:        emit Withdraw(msg.sender, address(tokenisedRanges[step]), trAmt);
++ 120:        emit Withdraw(msg.sender, address(step_), trAmt);
+121: }        
+122:
++     TokenisableRange  stepTicker_ = tokenisedTicker[step] ; 
+- 123:    trAmt = ERC20(LENDING_POOL.getReserveData(address(tokenisedTicker[step])).aTokenAddress).balanceOf(msg.sender);
++ 123:    trAmt = ERC20(LENDING_POOL.getReserveData(address(stepTicker_)).aTokenAddress).balanceOf(msg.sender);
+124:    if (trAmt > 0) {    
+125:        LENDING_POOL.PMTransfer(
+- 126:          LENDING_POOL.getReserveData(address(tokenisedTicker[step])).aTokenAddress, 
++ 126:          LENDING_POOL.getReserveData(address(stepTicker_)).aTokenAddress, 
+127:          msg.sender, 
+128:          trAmt
+129:        );
+- 130:        uint256 ttAmt = LENDING_POOL.withdraw(address(tokenisedTicker[step]), type(uint256).max, address(this));
++ 130:        uint256 ttAmt = LENDING_POOL.withdraw(address(stepTicker_), type(uint256).max, address(this));
+- 131:        tokenisedTicker[step].withdraw(ttAmt, 0, 0);
++ 131:        stepTicker_.withdraw(ttAmt, 0, 0);
+- 132:        emit Withdraw(msg.sender, address(tokenisedTicker[step]), trAmt);
++ 132:        emit Withdraw(msg.sender, address(stepTicker_), trAmt);
+133:    }           
+
+
+```
+
+State variable should be cached inside the loop 
+
+Condition checks should be top of the function. The cheep condition checks first then expensive checks 
+
+don't emit state variable
+
+combine both events together 
+
 
