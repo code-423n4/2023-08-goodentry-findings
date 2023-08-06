@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/lib/FullMath.sol#L2C17-L2C23",
+  "issueId": 169,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/169"
+}
