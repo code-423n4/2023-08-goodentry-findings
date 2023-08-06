@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "All the ticks in the array, except the new tick added at the beginning, will hold the same values as the last tick before the shift.",
+  "issueId": 218,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/218"
+}
