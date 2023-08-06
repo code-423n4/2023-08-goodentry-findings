@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "nadin",
+  "risk": "3",
+  "title": "Use of slot0 to get sqrtPriceLimitX96 can lead to price manipulation.",
+  "issueId": 154,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/154"
+}
