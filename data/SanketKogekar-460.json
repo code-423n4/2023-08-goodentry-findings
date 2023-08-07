@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "Incorrect price will be returned by Uniswap Oracle in certain condition which would result in wrong calculations.",
+  "issueId": 460,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/460"
+}
