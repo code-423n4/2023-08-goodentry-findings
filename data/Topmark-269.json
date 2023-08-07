@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Topmark",
+  "risk": "2",
+  "title": "Overflow and Denial of Service as Owner can never Set Base Fee above 67% if they wish or compulsorily  need to",
+  "issueId": 269,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/269"
+}
