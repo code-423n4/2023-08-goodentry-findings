@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "libratus",
+  "risk": "3",
+  "title": "Incorrect parameters passed to UniV3 may cause funds stuck in the vault",
+  "issueId": 397,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/397"
+}
