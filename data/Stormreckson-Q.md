@@ -3,23 +3,22 @@
 https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L117-L122
 
 It can be optimized by calling the function once and storing the result in a variable, like this:
-``
-TokenisableRange tr = TokenisableRange(lowerTick, upperTick);
-bool baseTokenIsToken0 = tr.baseTokenIsToken0();
-// ...
 
-else {
-  // Check that tick is properly ordered
-  bool isOverlap;
-  if (baseTokenIsToken0)
-    isOverlap = (t.lowerTick() <= ticks[ticks.length-1].upperTick());
-  else
-    isOverlap = (t.upperTick() >= ticks[ticks.length-1].lowerTick());
+    TokenisableRange tr = TokenisableRange(lowerTick, upperTick);
+    bool baseTokenIsToken0 = tr.baseTokenIsToken0();
+    // ...
+    else {
+    // Check that tick is properly ordered
+    bool isOverlap;
+    if (baseTokenIsToken0)
+       isOverlap = (t.lowerTick() <= ticks[ticks.length-1].upperTick());
+    else
+       isOverlap = (t.upperTick() >= ticks[ticks.length-1].lowerTick());
     
-  require(!isOverlap, "GEV: Push Tick Overlap");
+    require(!isOverlap, "GEV: Push Tick Overlap");
 
-  ticks.push(t);
-}
+    ticks.push(t);
+  }
 ``
 
 By storing the result of the `TokenisableRange `function in the tr variable and the result of the overlap check in the `isOverlap `variable, we avoid unnecessary function calls and streamline the code.
