@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "digitizeworx",
+  "risk": "2",
+  "title": "Manipulating `poolId` can lead to unauthorized access to fees from a different pool, causing financial losses to the legitimate participants of that pool.",
+  "issueId": 281,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/281"
+}
