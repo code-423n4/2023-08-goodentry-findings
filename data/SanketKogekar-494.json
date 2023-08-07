@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "Return data from the low-level `.call()` function is not verified.",
+  "issueId": 494,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/494"
+}
