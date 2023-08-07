@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "osmanozdemir1",
+  "risk": "2",
+  "title": "`RangeManager::transferAssetsIntoStep` switches assets instead of increasing and doesn't allow users to use their assets by holding them momentarily",
+  "issueId": 426,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/426"
+}
