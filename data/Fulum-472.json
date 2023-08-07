@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Fulum",
+  "risk": "3",
+  "title": "Return value of low-level .call() not checked, and sent to a non payable address. ",
+  "issueId": 472,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/472"
+}
