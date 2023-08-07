@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "shirochan",
+  "risk": "3",
+  "title": "No re-entrancy guard for opening a leverage position or liquidating a position",
+  "issueId": 410,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/410"
+}
