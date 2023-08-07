@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "oxchsyston",
+  "risk": "2",
+  "title": "Wrong calculation of debt in function close0 may lead to loss of funds.",
+  "issueId": 571,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/571"
+}
