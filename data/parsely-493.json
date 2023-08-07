@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "parsely",
+  "risk": "3",
+  "title": "Deposit will always revert when depositing ETH if one of the GeVault tokens is not WETH",
+  "issueId": 493,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/493"
+}
