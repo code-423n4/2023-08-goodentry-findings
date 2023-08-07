@@ -1,0 +1,3 @@
+According to the comment above the if statement, the contract should only send the fees if its 1% of the current balance, but the math is incorrect, it will transfer any fees, even if its 0,01% or less more than of the balance.
+The code should instead compare the fee0 > bal0 + bal0/100; fee1 > bal1 + bal1/100, or in other words, the current balance + 1 percent of the current balance (101%).
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/TokenisableRange.sol#L190 
