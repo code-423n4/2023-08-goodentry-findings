@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "jasonxiale",
+  "risk": "2",
+  "title": "tx might be stuck due to unchangeable slippage parameter",
+  "issueId": 365,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/365"
+}
