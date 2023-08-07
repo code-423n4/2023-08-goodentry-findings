@@ -1,6 +1,6 @@
 ## Gas Report
 
-### [G-01] - Use revert require statements.
+### [G-01] - Use revert statements.
 Try using revert and custom errors rather than require statemnets in all the files to save gas.
 
 ### [G-02] - Repetition of code.
