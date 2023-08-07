@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "BugBusters",
+  "risk": "3",
+  "title": "Potential Precision Loss in `claimFee()` due to Division Before Multiplication",
+  "issueId": 542,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/542"
+}
