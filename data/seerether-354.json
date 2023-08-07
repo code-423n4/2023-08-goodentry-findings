@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "the withdraw function is vulnerable to being blocked by a malicious user.",
+  "issueId": 354,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/354"
+}
