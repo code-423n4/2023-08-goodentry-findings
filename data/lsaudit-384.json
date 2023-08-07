@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Chainlink's `latestRoundData` might return stale results",
+  "issueId": 384,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/384"
+}
