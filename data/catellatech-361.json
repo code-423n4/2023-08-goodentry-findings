@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "catellatech",
+  "risk": "3",
+  "title": "In GeVault and TokenisableRange contracts uses `slot0` to retrieve prices instead of TWAP price",
+  "issueId": 361,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/361"
+}
