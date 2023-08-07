@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "the check in checkExpectedBalances only allows 2% slippage, which could be insufficient in volatile markets and lock user funds.",
+  "issueId": 544,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/544"
+}
