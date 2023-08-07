@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "0xepley",
+  "risk": "3",
+  "title": "GeVault#poolMatchesOracle is extemely easy to manipulate due to how it calculates underlying token balances",
+  "issueId": 552,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/552"
+}
