@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "chainsnake",
+  "risk": "3",
+  "title": "Invalid decimals usage of AAVE price oracle",
+  "issueId": 403,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/403"
+}
