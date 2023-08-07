@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Vagner",
+  "risk": "3",
+  "title": "`withdrawOptionAssets` in `OptionsPositionManager.sol` doesn't use any slippage protection on withdrawing liquidity from UniswapV3",
+  "issueId": 532,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/532"
+}
