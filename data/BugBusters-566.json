@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "BugBusters",
+  "risk": "2",
+  "title": "getAnswer() will return the wrong price for asset if underlying aggregator hits minAnswer",
+  "issueId": 566,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/566"
+}
