@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "0x73696d616f",
+  "risk": "2",
+  "title": "AaveOracle might not have 8 decimals depending on the source chainlink price feed",
+  "issueId": 405,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/405"
+}
