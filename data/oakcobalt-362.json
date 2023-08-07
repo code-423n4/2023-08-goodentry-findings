@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "oakcobalt",
+  "risk": "3",
+  "title": "Owner will most likely lose some asset0 and asset1 when initializing TokenisableRange through RangeManager",
+  "issueId": 362,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/362"
+}
