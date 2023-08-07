@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "R-Nemes",
+  "risk": "2",
+  "title": "Silent overflow in calculation of expected balance",
+  "issueId": 457,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/457"
+}
