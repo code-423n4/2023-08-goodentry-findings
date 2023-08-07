@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "pep7siup",
+  "risk": "2",
+  "title": "Assets from the old step are not properly transferred to a new TR position",
+  "issueId": 510,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/510"
+}
