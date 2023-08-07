@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "said",
+  "risk": "2",
+  "title": "Lack of slippage protection for uniswap v3 interactions inside `RangeManager` could lead to loss of user funds",
+  "issueId": 260,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/260"
+}
