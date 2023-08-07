@@ -25,6 +25,30 @@ Using `safeTransferFrom` in [TokenisableRange's deposit function](https://github
 ## [Low] RangeManager's constructor does not check for `asset0` and `asset1` 
 Consider adding a check for these to not equal `address(0)`.
 
+## [Low] RangeManager's non-overlap check is inconsistent with GeVault's
+The contract RangeManager [allows for TokenisableRange instances that overlap](https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/RangeManager.sol#L63) at the lower/higher tick:
+```Solidity
+    for (uint i = 0; i < len; i++) {
+      if (start >= stepList[i].end || end <= stepList[i].start) {
+        continue;
+      }
+      revert("Range overlap");
+    } 
+```
+however, GeVault does not allow for exact overlaps at the boundaries:
+```Solidity
+      if (baseTokenIsToken0) 
+        require( t.lowerTick() > ticks[ticks.length-1].upperTick(), "GEV: Push Tick Overlap");
+      else 
+        require( t.upperTick() < ticks[ticks.length-1].lowerTick(), "GEV: Push Tick Overlap");
+      // [...]
+      if (!baseTokenIsToken0) 
+        require( t.lowerTick() > ticks[0].upperTick(), "GEV: Shift Tick Overlap");
+      else 
+        require( t.upperTick() < ticks[0].lowerTick(), "GEV: Shift Tick Overlap");
+```
+It is recommended to double-check whether either constitutes an off-by-one error.
+
 ## [Informational] FixedOracle.sol contains the HardcodedPriceOracle contract. Consider matching these names
 It's a best practice to match the [contract name](https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/helper/FixedOracle.sol#L3) with the Solidity file name. Consider renaming either the file or the contract.
 
