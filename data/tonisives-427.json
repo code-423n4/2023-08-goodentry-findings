@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "tonisives",
+  "risk": "3",
+  "title": "OracleConvert returns wrong decimals for 2 18 decimals price feeds",
+  "issueId": 427,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/427"
+}
