@@ -1,6 +1,21 @@
-##
+# GAS OPTIMIZATIONS
+
+| Issue Count | Issues | Instances | Gas Saves |
+|----------|----------|----------|----------|
+| [G-1]  |Using ``calldata`` instead of memory for read-only arguments in external functions saves gas  | 7   | 1974 |
+| [G-2]  | State variables can be packed into fewer storage slots  | 2  | 4000 |
+| [G-3]  | Structs can be packed into fewer storage slots  | 2  | 4000  |
+| [G-4]  | Using bools for storage incurs overhead   | 3   | 60000   |
+| [G-5]  | Functions guaranteed to revert when called by normal users can be marked payable   | 13  | 273  |
+| [G-6]  | Multiple accesses of a mapping/array should use a local variable cache  | 10  | 1000  |
+| [G-7]  | State variable should be cached inside the loop| 1   | 100  |
+| [G-8]  | IF’s/require() statements that check input arguments should be at the top of the function  | 1  | 400 |
+
+
 
 ## [G-1] Using ``calldata`` instead of memory for read-only arguments in external functions saves gas
+
+### Saves ``1974 GAS``
 
 When a function with a memory array is called externally, the abi.decode() step has to use a for-loop to copy each index of the calldata to the memory index. Each iteration of this for-loop costs at least 60 gas (i.e. 60 * <mem_array>.length). Using calldata directly, obliviates the need for such a loop in the contract code and runtime execution. Note that even if an interface defines a function as having memory arguments, it’s still valid for implementation contracs to use calldata arguments instead.
 
@@ -67,6 +82,8 @@ FILE: 2023-08-goodentry/contracts/RangeManager.sol
 
 ## [G-2] State variables can be packed into fewer storage slots
 
+### Saves ``4000 GAS, 2 SLOT``
+
 The EVM works with 32 byte words. Variables less than 32 bytes can be declared next to eachother in storage and this will pack the values together into a single 32 byte storage slot (if the values combined are <= 32 bytes). If the variables packed together are retrieved together in functions we will effectively save ~2000 gas with every subsequent SLOAD for that storage slot. This is due to us incurring a Gwarmaccess (100 gas) versus a Gcoldsload (2100 gas).
 
 ### ``baseFeeX4`` can be declared uint96 instead of ``uint`` : Saves ``2000 GAS``, ``1 SLOT``
@@ -128,9 +145,55 @@ FILE: Breadcrumbs2023-08-goodentry/contracts/TokenisableRange.sol
   uint public treasuryFee_deprecated = 20;
 
 ```
+
 ##
 
-## [G-3] Using bools for storage incurs overhead
+## [G-3] Structs can be packed into fewer storage slots
+
+### Saves ``4000 GAS``, ``2 SLOTs``
+
+Each slot saved can avoid an extra Gsset (20000 gas) for the first setting of the struct.
+
+### ``deadline`` can be downcasted to uint96 instead of uint256 : saves ``4000 GAS, 2 SLOTs``. 
+
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/helper/V3Proxy.sol#L22-L31
+
+The current timestamp is 2023-08-07 04:44:39 PST. The maximum timestamp that can be stored in a uint96 is 2**96 - 1, which is about 1.8446744073709552e+18 seconds. This is more than 276 years, so it will take at least 276 years for the block timestamp to overflow when stored in a uint96
+
+```diff
+FILE: 2023-08-goodentry/contracts/helper/V3Proxy.sol
+
+10: struct ExactInputSingleParams {
+11:        address tokenIn;
+12:        address tokenOut;
+13:        uint24 fee;
+14:        address recipient;
++ 15:        uint96 deadline;
+- 15:        uint256 deadline;
+16:        uint256 amountIn;
+17:        uint256 amountOutMinimum;
+18:        uint160 sqrtPriceLimitX96;
+19:    }
+
+
+22: struct ExactOutputSingleParams {
+23:        address tokenIn;
+24:        address tokenOut;
+25:        uint24 fee;
+26:        address recipient;
++ 27:        uint96 deadline;
+- 27:        uint256 deadline;
+28:        uint256 amountOut;
+29:        uint256 amountInMaximum;
+30:        uint160 sqrtPriceLimitX96;
+31:    }
+
+```
+##
+
+## [G-4] Using bools for storage incurs overhead
+
+### Saves ``60000 GAS``, ``3 Instances ``
 
 ```
     // Booleans are more expensive than uint256 or any type that takes up a full
@@ -163,7 +226,9 @@ https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2
 
 ##
 
-## [G-4] Functions guaranteed to revert when called by normal users can be marked payable
+## [G-5] Functions guaranteed to revert when called by normal users can be marked payable
+
+Saves ``273 GAS``, ``13 Instances ``
 
 If a function modifier such as onlyOwner is used, the function will revert if a normal user tries to pay the function. Marking the function as payable will lower the gas cost for legitimate callers because the compiler will not include checks for whether a payment was provided. The extra opcodes avoided are CALLVALUE(2),DUP1(3),ISZERO(3),PUSH2(3),JUMPI(10),PUSH1(3),DUP1(3),REVERT(0),JUMPDEST(1),POP(2), which costs an average of about 21 gas per call to the function, in addition to the extra deployment cost
 
@@ -253,11 +318,15 @@ https://github.com/code-423n4/2023-08-goodentry/blob/main/contracts/helper/Fixed
 
 ##
 
-## [G-5] Multiple accesses of a mapping/array should use a local variable cache
+## [G-6] Multiple accesses of a mapping/array should use a local variable cache
+
+### Saves ``1100 GAS``, ``11 SLODs``
 
 The instances below point to the second+ access of a value inside a mapping/array, within a function. Caching a mapping’s value in a local storage or calldata variable when the value is accessed [multiple times](https://gist.github.com/IllIllI000/ec23a57daa30a8f8ca8b9681c8ccefb0), saves ~42 gas per access due to not having to recalculate the key’s keccak256 hash (Gkeccak256 - 30 gas) and that calculation’s associated stack operations. Caching an array’s struct avoids recalculating the array offsets into memory/calldata
 
 ### ``ticks[ticks.length-1]``, ``ticks[0]`` should be cached with stack variable : Saves ``200 GAS, 2 SLOD``
+
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L124-L128
 
 ```diff
 FILE: Breadcrumbs2023-08-goodentry/contracts/GeVault.sol
@@ -287,20 +356,13 @@ FILE: Breadcrumbs2023-08-goodentry/contracts/GeVault.sol
 
 ```
 
-###  ``tokenisedTicker[step]``,``tokenisedRanges[ tokenisedRanges.length - 1 ]``,``tokenisedTicker[step]`` should be cached  : Saves  ``900 GAS``, ``9 SLOD``
+###  ``tokenisedTicker[step]``,``tokenisedRanges[ tokenisedRanges.length - 1 ]``,``tokenisedTicker[step]`` should be cached  : Saves  ``800 GAS``, ``8 SLOD``
+
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/RangeManager.sol#L111-L133
 
 
 ```diff
 FILE: Breadcrumbs2023-08-goodentry/contracts/RangeManager.sol
-
-+   TokenisableRange tokenisedRanges_ = tokenisedRanges[ tokenisedRanges.length - 1 ] ; 
-- 85:   tokenisedRanges[ tokenisedRanges.length - 1 ].initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, false);
-+ 85:   tokenisedRanges_.initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, false);
-- 86:    tokenisedTicker[ tokenisedTicker.length - 1 ].initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, true); 
-+ 86:    tokenisedRanges_.initProxy(oracle, ASSET_0, ASSET_1, startX10, endX10, startName, endName, true); 
-87:    emit AddRange(startX10, endX10, tokenisedRanges.length - 1);
-
-
 
 +   TokenisableRange  step_ = tokenisedRanges[step] ; 
 - 111: trAmt = ERC20(LENDING_POOL.getReserveData(address(tokenisedRanges[step])).aTokenAddress).balanceOf(msg.sender);  
@@ -338,15 +400,59 @@ FILE: Breadcrumbs2023-08-goodentry/contracts/RangeManager.sol
 + 132:        emit Withdraw(msg.sender, address(stepTicker_), trAmt);
 133:    }           
 
+```
+##
+
+## [G-7] State variable should be cached inside the loop
+
+### Saves ``100 GAS, 1 SLOD`` for each iterations 
+
+State variable should be cached inside the loop if it is accessed multiple times in the loop. This is because accessing a state variable from memory is a relatively expensive operation, so caching the variable in a local variable will improve performance 
+
+### ``stepList[i]`` should be cached : Saves ``100 GAS, 1 SLOT`` for every iterations 
+
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/RangeManager.sol#L62-L65
+
+```diff
+FILE: 2023-08-goodentry/contracts/RangeManager.sol
+
+62: for (uint i = 0; i < len; i++) {
++   Step stepList_ = stepList[i];
+- 63:      if (start >= stepList[i].end || end <= stepList[i].start) {
++ 63:      if (start >= stepList_.end || end <= stepList_.start) {
+64:        continue;
+65:      }
+
 
 ```
 
-State variable should be cached inside the loop 
+##
 
-Condition checks should be top of the function. The cheep condition checks first then expensive checks 
+## [G-8] IF’s/require() statements that check input arguments should be at the top of the function
 
-don't emit state variable
+### Saves ``400 GAS``
 
-combine both events together 
+FAIL CHEEPLY INSTEAD OF COSTLY 
+
+Checks that involve constants should come before checks that involve state variables, function calls, and calculations. By doing these checks first, the function is able to revert before wasting a Gcoldsload (2100 gas) in a function that may ultimately revert in the unhappy case.
+
+### Function parameters should be checked top of the function : Saves ``400 GAS``
+
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L249-L252
+
+```diff
+FILE: 2023-08-goodentry/contracts/GeVault.sol
+
++ 252:    require(amount > 0 || msg.value > 0, "GEV: Deposit Zero");
+249:    require(isEnabled, "GEV: Pool Disabled");
+250:    require(poolMatchesOracle(), "GEV: Oracle Error");
+251:    require(token == address(token0) || token == address(token1), "GEV: Invalid Token");
+- 252:    require(amount > 0 || msg.value > 0, "GEV: Deposit Zero");
+
+```
+
+
+
+
 
 
