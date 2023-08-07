@@ -10,6 +10,8 @@
 | [G-6]  | Multiple accesses of a mapping/array should use a local variable cache  | 10  | 1000  |
 | [G-7]  | State variable should be cached inside the loop| 1   | 100  |
 | [G-8]  | IF’s/require() statements that check input arguments should be at the top of the function  | 1  | 400 |
+| [G-9]  | Consider using the ``view`` or ``pure`` keywords for functions that don't modify state to save gas  | -  | - |
+
 
 
 
@@ -450,6 +452,21 @@ FILE: 2023-08-goodentry/contracts/GeVault.sol
 - 252:    require(amount > 0 || msg.value > 0, "GEV: Deposit Zero");
 
 ```
+##
+
+## [G-9] Consider using the ``view`` or ``pure`` keywords for functions that don't modify state to save gas 
+
+The view and pure keywords can be used to indicate that a function does not modify state. This can save gas, because the compiler will not need to check the gas costs of the function's internal operations
+
+```solidity
+FILE: Breadcrumbs2023-08-goodentry/contracts/PositionManager/OptionsPositionManager.sol
+
+533: function sanityCheckUnderlying(address tr, address token0, address token1) internal {
+
+544: function addDust(address debtAsset, address token0, address token1) internal returns (uint amount){
+
+```
+https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/PositionManager/OptionsPositionManager.sol#L533
 
 
 
