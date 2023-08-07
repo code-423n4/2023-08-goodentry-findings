@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "said",
+  "risk": "2",
+  "title": "There is no way to change `treasury` address inside `TokenisableRange`, if the `TokenisableRange` involves token with blacklist and `treasury` is blacklisted, the `TokenisableRange` functions will break",
+  "issueId": 256,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/256"
+}
