@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "Users can steal asset0 and asset1 left in RangeManager by owner to deposit to lending pool",
+  "issueId": 390,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/390"
+}
