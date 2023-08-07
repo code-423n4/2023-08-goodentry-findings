@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Vagner",
+  "risk": "3",
+  "title": "`addDust` in `OptionsPositionManager.sol` can add way more tokens than expected in cases where the asset used has less decimals",
+  "issueId": 548,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/548"
+}
