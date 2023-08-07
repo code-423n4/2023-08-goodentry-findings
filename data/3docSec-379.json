@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "3docSec",
+  "risk": "2",
+  "title": "Incorrect boundaries check in GeVault's \"getActiveTickIndex\" can temporarily freeze assets due to Index out of bounds error",
+  "issueId": 379,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/379"
+}
