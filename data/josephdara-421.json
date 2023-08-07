@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "josephdara",
+  "risk": "2",
+  "title": "Deprecated RoePools can be added back through addPool, Also duplicate RoePool parameters could exist",
+  "issueId": 421,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/421"
+}
