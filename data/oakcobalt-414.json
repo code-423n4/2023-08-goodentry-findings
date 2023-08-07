@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "oakcobalt",
+  "risk": "2",
+  "title": "When oracle price or Uniswap price move inside a tick range, geVault's rebalance, deposit and withdraw function will always revert, causing unpredictable DOS in geVault",
+  "issueId": 414,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/414"
+}
