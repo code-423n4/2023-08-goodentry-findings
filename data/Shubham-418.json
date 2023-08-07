@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Shubham",
+  "risk": "2",
+  "title": "Using block.timestamp as deadline in TokenisableRange can lead to delay in carrying out important operations",
+  "issueId": 418,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/418"
+}
