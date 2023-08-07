@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "seerether",
+  "risk": "3",
+  "title": "The contract owner can disable deposits via setEnabled(false) and withdraw everything.",
+  "issueId": 336,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/336"
+}
