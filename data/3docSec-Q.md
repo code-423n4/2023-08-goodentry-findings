@@ -49,6 +49,9 @@ however, GeVault does not allow for exact overlaps at the boundaries:
 ```
 It is recommended to double-check whether either constitutes an off-by-one error.
 
+## [Low] GeVault's 'modifyTick' allows inserting out-of-order TokenisableRange instances
+The [modifyTick](https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L171) function is inconsistent with the other GeVault's functions. While both [pushTick](https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L116) and [shiftTick](https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L137) maintain ordering and non-overlap consistency of the `ticks` array, `modifyTick` doesn't. This can cause the `deployAssets` function to malfunction since [this function assumes the correct ordering](https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/GeVault.sol#L353) of the ticks.
+
 ## [Informational] FixedOracle.sol contains the HardcodedPriceOracle contract. Consider matching these names
 It's a best practice to match the [contract name](https://github.com/code-423n4/2023-08-goodentry/blob/71c0c0eca8af957202ccdbf5ce2f2a514ffe2e24/contracts/helper/FixedOracle.sol#L3) with the Solidity file name. Consider renaming either the file or the contract.
 
