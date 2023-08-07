@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Vagner",
+  "risk": "2",
+  "title": "`getTickAtSqrtRatio` used in `TokenisableRange.sol` to calculate lower and upper ticks is used without letting for overflow behavior, which is required",
+  "issueId": 498,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/498"
+}
