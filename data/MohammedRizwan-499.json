@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "MohammedRizwan",
+  "risk": "2",
+  "title": "deadline using swap functions does not verify that the deadline has passed/expired",
+  "issueId": 499,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/499"
+}
