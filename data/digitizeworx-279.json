@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "digitizeworx",
+  "risk": "3",
+  "title": "Double Decoding Vulnerability in `executeOperation` Function, the `params` variable is coming from an external `untrusted` address, making it susceptible to malicious input and unauthorized actions.",
+  "issueId": 279,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/279"
+}
