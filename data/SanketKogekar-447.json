@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "SanketKogekar",
+  "risk": "3",
+  "title": "Missing slippage and vulnerable deadline check is not effective in multiple functions of `TokenisableRange` contract, allowing outdated slippage and pending transaction to be executed unexpectedly.",
+  "issueId": 447,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/447"
+}
