@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "jaraxxus",
+  "risk": "2",
+  "title": "No deadline when interacting with UniswapV3 which might result in not ideal transactions",
+  "issueId": 470,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/470"
+}
