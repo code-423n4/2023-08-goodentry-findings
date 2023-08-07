@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "josephdara",
+  "risk": "3",
+  "title": "Constant Address actually not constant across EVM chains.",
+  "issueId": 402,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/402"
+}
