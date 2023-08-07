@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "tsvetanovv",
+  "risk": "2",
+  "title": "In `TokenisableRange.sol` malicious user can front-run `initProxy()` and become a `creator`",
+  "issueId": 455,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/455"
+}
