@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "digitizeworx",
+  "risk": "3",
+  "title": "Tokens owned by one user may be mistakenly deposited into the lending pool on behalf of another user, causing a permanent loss of tokens.",
+  "issueId": 288,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/288"
+}
