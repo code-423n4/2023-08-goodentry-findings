@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "RETURN VALUE OF LOW LEVEL `call` FUNCTION IS NOT CHECKED FOR SUCCESFUL VALUE TRANSFER",
+  "issueId": 508,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/508"
+}
