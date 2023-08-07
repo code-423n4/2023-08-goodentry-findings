@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Neon2835",
+  "risk": "2",
+  "title": "The withdraw function of the GeVault contract does not verify whether the token parameter belongs to token0 or token1, which poses a potential risk of causing user losses",
+  "issueId": 419,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/419"
+}
