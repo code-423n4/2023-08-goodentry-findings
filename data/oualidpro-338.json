@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "oualidpro",
+  "risk": "3",
+  "title": "Price calculation susceptible to flashloan exploits",
+  "issueId": 338,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/338"
+}
