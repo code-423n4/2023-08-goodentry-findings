@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "osmanozdemir1",
+  "risk": "3",
+  "title": "Anyone can initiate a flash loan, create a debt on behalf of someone else, and buy options since the flash loan initiator is never checked",
+  "issueId": 297,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/297"
+}
