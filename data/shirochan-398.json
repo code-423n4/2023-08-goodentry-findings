@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "shirochan",
+  "risk": "3",
+  "title": "ETH transfers can fail silently during swaps",
+  "issueId": 398,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/398"
+}
