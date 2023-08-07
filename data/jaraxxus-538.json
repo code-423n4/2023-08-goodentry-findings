@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "jaraxxus",
+  "risk": "2",
+  "title": "Hardcoded slippage of 95% may not be ideal if liquidity is low or during market volatility, may result in revert when depositing or withdrawing",
+  "issueId": 538,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/538"
+}
