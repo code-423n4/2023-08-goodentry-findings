@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "parsely",
+  "risk": "2",
+  "title": "Low-level call return value not checked **(Not duplicate of M-14 of known findings)**",
+  "issueId": 477,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/477"
+}
