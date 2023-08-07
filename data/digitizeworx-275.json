@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "digitizeworx",
+  "risk": "2",
+  "title": "The `mode` parameter determines whether the function will execute the buy options or the liquidation logic. The buy options logic should only be executed if the mode parameter is `0`, and the liquidation logic should only be executed if the mode parameter is `1`.",
+  "issueId": 275,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/275"
+}
