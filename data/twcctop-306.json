@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "twcctop",
+  "risk": "3",
+  "title": " Price calculation susceptible to flashloan exploits",
+  "issueId": 306,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/306"
+}
