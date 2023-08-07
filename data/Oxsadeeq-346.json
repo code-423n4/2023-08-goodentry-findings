@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Oxsadeeq",
+  "risk": "3",
+  "title": " Implementation of withdrawal function in the TokenisableRange contract  would lead to unfair distribution of accrued fee's among liquidity providers and in worst cases the liquidity providers could claim fees accrued if the amount of tokens they want to withdraw is  greater than the amount of accrued fees.",
+  "issueId": 346,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/346"
+}
