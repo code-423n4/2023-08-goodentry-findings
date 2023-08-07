@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Walter",
+  "risk": "2",
+  "title": "Calculation Errors in calculateAndSendFee Function of OptionsPositionManager Contract",
+  "issueId": 525,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/525"
+}
