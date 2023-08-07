@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "SAME POOL CAN BE ADDED MULTIPLE TIMES TO THE `pools` ARRAY IN THE `RoeRouter` CONTRACT",
+  "issueId": 496,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/496"
+}
