@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "Fulum",
+  "risk": "3",
+  "title": "When new position (UniswapV3 NFT) is minted, the position is never received by the `TokenisableRange.sol`, this cause the contract unusable and losing the fund for minting.",
+  "issueId": 435,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/435"
+}
