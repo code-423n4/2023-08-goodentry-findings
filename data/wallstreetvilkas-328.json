@@ -1,0 +1,8 @@
+{
+  "contest": 269,
+  "handle": "wallstreetvilkas",
+  "risk": "2",
+  "title": "block.timestamp used as deadline, the tx can be delayed or denied.",
+  "issueId": 328,
+  "issueUrl": "https://github.com/code-423n4/2023-08-goodentry-findings/issues/328"
+}
